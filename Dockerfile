@@ -15,6 +15,7 @@ RUN chown -R ${USERNAME}:${USERNAME} /app /home/${USERNAME}/.bashrc
 WORKDIR /app
 
 RUN pip install "poetry==${POETRY_VERSION}"
+RUN poetry config virtualenvs.create false
 RUN poetry install
 
 USER ${USERNAME}
